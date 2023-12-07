@@ -136,6 +136,7 @@
     <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="res\LotsOfFiles.ico" />
     <None Include="res\LotsOfFiles.rc2" />
   </ItemGroup>

@@ -51,5 +51,6 @@
     <None Include="res\LotsOfFiles.rc2">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>
