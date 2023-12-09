@@ -337,30 +337,26 @@ void CLotsOfFilesDlg::OnFind()
 	static_cast<CListBox*>( GetDlgItem( IDC_LIST ) )->ResetContent();
 
 	CString sFind;
-	
 	GetDlgItemText( IDC_MATCH , sFind );
-
-//	sFind = ".\\Test\\" + sFind;
 
 	CFileFind ff;
 
-	int iCount = 0;
-
 	if ( ff.FindFile( sFind ) )
 	{
-		int OK;
+		int iCount = 0;
+
+		BOOL bMoreFilesToDo;
 
 		do
 		{
-			OK = ff.FindNextFile();
-			CString sMatchName;
-			sMatchName = ff.GetFileName();
+			bMoreFilesToDo = ff.FindNextFile();
+			const auto sMatchName = ff.GetFileName();
 
 			static_cast<CListBox*>( GetDlgItem( IDC_LIST ) )->AddString( sMatchName );
 
-			iCount++;
-
-		} while ( OK );
+			++iCount;
+		}
+		while ( bMoreFilesToDo );
 
 		ff.Close();
 
